@@ -1,0 +1,24 @@
+#container{
+  display: grid;
+  grid-template: "titre titre titre titre"
+                "perso msg msg  msg"
+                "perso nouMsg nouMsg nouMsg";
+}
+* {
+  border: 1px solid black;
+  text-align: center;
+}
+app-en-tete{
+  grid-area: titre;
+}
+app-personnes{
+  grid-area: perso;
+}
+app-affichage{
+  grid-area: msg;
+}
+app-boutons{
+  grid-area: nouMsg;
+}
+
+
