@@ -1,0 +1,7 @@
+<h2>Personnes actives :</h2>
+<p *ngIf="personnes.length == 0">
+  Il n'y a aucune personne active.
+</p>
+<ul *ngIf="personnes.length > 0">
+  <li *ngFor="let personne of personnes">{{personne.nom}}-{{personne.prenom}}</li>
+</ul>
