@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Personnes} from "../modeles/Personnes()";
 import {Message} from "../modeles/Message";
+import {BoutonsComponent} from "../composants/boutons/boutons.component";
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,22 @@ export class ServicePersonneService {
 
   constructor() {
 
-    let auteur = new Personnes("Zhou", "Yuwei");
-    let auteur2 = new Personnes("Li", "Antoine");
-    let message = new Message(auteur, "Salut, ça va ?");
-    let message2 = new Message(auteur2, "Ca va, et toi ?");
-    this.messages = [message, message2];
+    this.messages=[];
+
+  }
+
+  public ajouterMessage(nouveauMessage: Message): void{
+    this.messages.push(nouveauMessage);
+  }
+
+  public rechercher(motClef: string): Message[]{
+    let surmessages: Message[];
+    surmessages=[];
+    for (let msg of this.messages) {
+      if(msg.message.search(motClef)!==-1)
+        surmessages.push(msg);
+    }
+    return surmessages;
   }
 
   public getMessages(): Message[] {

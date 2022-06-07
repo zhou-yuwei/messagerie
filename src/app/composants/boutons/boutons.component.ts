@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Message} from "../../modeles/Message";
+import {Personnes} from "../../modeles/Personnes()";
+import {ServicePersonneService} from "../../services/service-personne.service";
 
 @Component({
   selector: 'app-boutons',
@@ -6,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boutons.component.css']
 })
 export class BoutonsComponent implements OnInit {
-  public pseudo: string;
-  constructor() {
-    this.pseudo="";
+  public message: string[];
+  private recherche: string;
+  constructor(private svc:ServicePersonneService) {
+    this.message=[];
+    this.recherche= "";
   }
 
   ngOnInit(): void {
+  }
+
+  clicSurForm(valuesFormulaire: any): void {
+
+    let nouveauMessage=new Message(new Personnes(valuesFormulaire.nom, valuesFormulaire.prenom), valuesFormulaire.msg);
+    this.svc.ajouterMessage(nouveauMessage);
+    console.log(nouveauMessage);
   }
 
 }
