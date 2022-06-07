@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import {Personnes} from "../modeles/Personnes()";
 import {Message} from "../modeles/Message";
-import {BoutonsComponent} from "../composants/boutons/boutons.component";
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicePersonneService {
 
-  public messages: Message[];
+  //public messages: Message[];
+  private messages$: Observable<Message[]>;
+  private messages: Message[] = [];
+  //TODO:juste pour ne pas avoir d'erreur à supprimer
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
-    this.messages=[];
+    this.messages$=this.http.get<Message[]>("http://10.103.0.254:8080");
 
   }
 
@@ -29,10 +33,12 @@ export class ServicePersonneService {
     }
     return surmessages;
   }
-
-  public getMessages(): Message[] {
-    return this.messages;
+  public getMessages():Observable<Message[]>{
+    return this.messages$;
   }
+  //public getMessages(): Message[] {
+    //return this.messages;
+  //}
 
   public getPersonnes(): Personnes[] {
     let auteurs: Personnes[];

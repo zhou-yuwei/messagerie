@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from "../../modeles/Message";
 import {ServicePersonneService} from "../../services/service-personne.service";
+import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-affichage',
@@ -9,11 +11,12 @@ import {ServicePersonneService} from "../../services/service-personne.service";
 })
 export class AffichageComponent implements OnInit {
 
-  public messages: Message[];
+  //public messages: Message[];
+  public messages$: Observable<Message[]>;
   public motClef: string;
 
   constructor(private svc: ServicePersonneService) {
-    this.messages = this.svc.getMessages();
+    this.messages$ = this.svc.getMessages();
     this.motClef="";
   }
 
@@ -21,8 +24,7 @@ export class AffichageComponent implements OnInit {
   }
 
   clicSurRecherche() {
-    this.messages = this.svc.rechercher(this.motClef);
-    console.log(this.motClef);
-    console.log(this.messages);
+    //this.messages = this.svc.rechercher(this.motClef);
+
   }
 }

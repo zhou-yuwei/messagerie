@@ -8,9 +8,11 @@ import { AffichageComponent } from './composants/affichage/affichage.component';
 import { PersonnesComponent } from './composants/personnes/personnes.component';
 import { BoutonsComponent } from './composants/boutons/boutons.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
+
     AppComponent,
     EnTeteComponent,
     AffichageComponent,
@@ -20,7 +22,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

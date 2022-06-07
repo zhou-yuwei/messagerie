@@ -1,3 +1,4 @@
+<div *ngIf="messages$ | async as messages">
 <p *ngIf="messages.length == 0">
   Auteur est obligatoire.
 </p>
@@ -19,3 +20,4 @@
   <button (click)="clicSurRecherche()">Recherche</button>
 </div>
 
+</div>
