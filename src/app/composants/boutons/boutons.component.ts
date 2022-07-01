@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from "../../modeles/Message";
-import {Personnes} from "../../modeles/Personnes()";
+import {Personne} from "../../modeles/Personne";
 import {ServicePersonneService} from "../../services/service-personne.service";
 
 @Component({
@@ -21,7 +21,7 @@ export class BoutonsComponent implements OnInit {
 
   clicSurForm(valuesFormulaire: any): void {
 
-    let nouveauMessage=new Message(new Personnes(valuesFormulaire.nom, valuesFormulaire.prenom), valuesFormulaire.msg);
+    let nouveauMessage=new Message(new Personne(valuesFormulaire.nom, valuesFormulaire.prenom), valuesFormulaire.msg);
     this.svc.ajouterMessage(nouveauMessage);
     console.log(nouveauMessage);
   }

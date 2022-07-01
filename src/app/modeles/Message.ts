@@ -1,21 +1,21 @@
-import {Personnes} from "./Personnes()";
+import {Personne} from "./Personne";
 
 export class Message {
-  private _auteur: Personnes;
+  private _auteur: Personne;
   private _message: string;
   public date: Date;
 
-  constructor(auteur: Personnes, message: string) {
+  constructor(auteur: Personne, message: string) {
     this._auteur = auteur;
     this._message = message;
     this.date = new Date();
   }
 
-  get auteur(): Personnes {
+  get auteur(): Personne {
     return this._auteur;
   }
 
-  set auteur(value: Personnes) {
+  set auteur(value: Personne) {
     this._auteur = value;
   }
 

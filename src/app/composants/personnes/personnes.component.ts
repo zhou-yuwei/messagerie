@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Personnes} from "../../modeles/Personnes()";
+import {Personne} from "../../modeles/Personne";
 import {ServicePersonneService} from "../../services/service-personne.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {ServicePersonneService} from "../../services/service-personne.service";
 })
 export class PersonnesComponent implements OnInit {
 
-  public personnes: Personnes[];
+  public personnes: Personne[];
 
   constructor(private svc: ServicePersonneService) {
     this.personnes = this.svc.getPersonnes();

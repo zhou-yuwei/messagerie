@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Personnes} from "../modeles/Personnes()";
+import {Personne} from "../modeles/Personne";
 import {Message} from "../modeles/Message";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
@@ -40,8 +40,8 @@ export class ServicePersonneService {
     //return this.messages;
   //}
 
-  public getPersonnes(): Personnes[] {
-    let auteurs: Personnes[];
+  public getPersonnes(): Personne[] {
+    let auteurs: Personne[];
     auteurs = [];
     for (let msg of this.messages) {
       auteurs.push(msg.auteur);
